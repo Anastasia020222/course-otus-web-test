@@ -1,0 +1,12 @@
+target
+.idea
+*.iml
+.gradle
+.DS_Store
+build
+allure-results
+test-output
+.allure
+local.properties
+out
+lombok.config
