@@ -14,8 +14,6 @@ import java.util.Set;
 
 public class DriverControlLaunch implements BeforeEachCallback, AfterEachCallback {
 
-  private final EnvironmentProperties environmentProperties = new EnvironmentProperties();
-
   private WebDriver driver;
 
   @Override

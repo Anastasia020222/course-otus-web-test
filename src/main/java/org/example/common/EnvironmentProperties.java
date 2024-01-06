@@ -29,5 +29,4 @@ public class EnvironmentProperties {
   public String getUrl() {
     return properties.getProperty("url");
   }
-
 }
