@@ -4,6 +4,7 @@ import static org.example.lesson.ReadListLesson.parseLocalDateString;
 
 import lombok.Getter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Getter
 public class LessonPages {
@@ -35,6 +37,8 @@ public class LessonPages {
   }
 
   public LessonPages actionsCourse() {
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", getTextCourses());
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     actions
         .moveToElement(getTextCourses())
         .click();
@@ -44,8 +48,8 @@ public class LessonPages {
   }
 
   public LessonPages checkPagesCourse() {
-    this.pagesCourse = driver.findElement(By.cssSelector(".sc-s2pydo-6.EOCgR.sc-x072mc-0.hOtCic"));
     getWait();
+    this.pagesCourse = driver.findElement(By.cssSelector(".sc-s2pydo-6.EOCgR.sc-x072mc-0.hOtCic"));
     pagesCourse
         .isDisplayed();
     return this;
