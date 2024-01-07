@@ -18,7 +18,7 @@ public class FilterCourseTest {
   private WebDriver driver;
 
   @Test
-  @DisplayName("Фильтры: по названию курса и датам")
+  @DisplayName("Фильтры по названию курса и датам")
   public void listCourse() {
     driver.get(URL);
     LessonPages lessonPages = new LessonPages(driver);

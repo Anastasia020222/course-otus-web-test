@@ -17,7 +17,7 @@ public class ActionsTest {
   private WebDriver driver;
 
   @Test
-  @DisplayName("Движение мыши и выбор курса")
+  @DisplayName("Библиотека Actions")
   public void actionsMouse() {
     driver.get(URL);
     LessonPages lessonPages = new LessonPages(driver);
