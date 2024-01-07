@@ -1,6 +1,7 @@
 package org.example.lesson;
 
 import static org.example.lesson.ReadListLesson.parseLocalDateString;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 import lombok.Getter;
 import org.openqa.selenium.By;
@@ -13,16 +14,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Getter
 public class LessonPages {
 
   WebDriver driver;
   List<WebElement> resultListLesson;
-  WebElement recommendAndPopularCoursesName;
-  WebElement recommendAndPopularCoursesDate;
-  WebElement pagesCourse;
   WebElement textCourses;
   WebDriverWait wait;
 
@@ -38,7 +35,6 @@ public class LessonPages {
 
   public LessonPages actionsCourse() {
     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", getTextCourses());
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     actions
         .moveToElement(getTextCourses())
         .click();
@@ -48,8 +44,7 @@ public class LessonPages {
   }
 
   public LessonPages checkPagesCourse() {
-    getWait();
-    this.pagesCourse = driver.findElement(By.cssSelector(".sc-s2pydo-6.EOCgR.sc-x072mc-0.hOtCic"));
+    WebElement pagesCourse = wait.until(visibilityOfElementLocated(By.cssSelector(".sc-s2pydo-6.EOCgR.sc-x072mc-0.hOtCic")));
     pagesCourse
         .isDisplayed();
     return this;

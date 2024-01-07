@@ -1,7 +1,6 @@
 package org.example.configuration;
 
 import org.example.annotations.Driver;
-import org.example.common.EnvironmentProperties;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;

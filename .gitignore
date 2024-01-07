@@ -5,6 +5,5 @@ target
 .DS_Store
 build
 test-output
-local.properties
 out
 lombok.config

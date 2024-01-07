@@ -3,9 +3,9 @@
 
 # Запуск тестов
 - Запуск браузера:  
-Для запуска тестов в нужном браузере (Chrome, Firefox, Opera)
+Для запуска тестов в нужном браузере (Chrome или Firefox)
 нужно в файле `local.properties` в поле `browser` прописать 
-нужный браузер (chrome, firefox, opera).
+нужный браузер (chrome или firefox).
 По умолчанию стоит chrome.
 
 
