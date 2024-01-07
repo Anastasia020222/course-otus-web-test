@@ -1,10 +1,12 @@
 package org.example.configuration;
 
 import org.example.annotations.Driver;
+import org.example.listeners.Listener;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -18,6 +20,7 @@ public class DriverControlLaunch implements BeforeEachCallback, AfterEachCallbac
   @Override
   public void beforeEach(ExtensionContext context) throws Exception {
     driver = new DriverProviderConfiguration().selectionBrowser();
+    driver = new EventFiringWebDriver(driver).register(new Listener());
     for (Field field : getAnnotatedField(context, Driver.class)) {
       if (field.getType().getName().equals(WebDriver.class.getName())) {
         field.setAccessible(true);
