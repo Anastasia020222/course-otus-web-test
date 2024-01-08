@@ -19,7 +19,7 @@ public class DriverControlLaunch implements BeforeEachCallback, AfterEachCallbac
 
   @Override
   public void beforeEach(ExtensionContext context) throws Exception {
-    driver = new DriverProviderConfiguration().selectionBrowser();
+    driver = new WebDriverFactory().getDriver();
     driver = new EventFiringWebDriver(driver).register(new Listener());
     for (Field field : getAnnotatedField(context, Driver.class)) {
       if (field.getType().getName().equals(WebDriver.class.getName())) {
