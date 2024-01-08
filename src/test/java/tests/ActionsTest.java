@@ -1,6 +1,6 @@
 package tests;
 
-import static org.example.common.Constants.URL;
+import static org.example.common.OpenDriverUrl.openUrl;
 
 import org.example.annotations.Driver;
 import org.example.configuration.DriverControlLaunch;
@@ -19,7 +19,7 @@ public class ActionsTest {
   @Test
   @DisplayName("Библиотека Actions")
   public void actionsMouse() {
-    driver.get(URL);
+    openUrl(driver);
     LessonPages lessonPages = new LessonPages(driver);
     lessonPages
         .actionsCourse();

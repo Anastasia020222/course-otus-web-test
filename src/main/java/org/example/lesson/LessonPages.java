@@ -29,7 +29,7 @@ public class LessonPages {
     this.driver = driver;
     this.actions = new Actions(driver);
     this.resultListLesson = driver.findElements(By.cssSelector(".sc-1ftuaec-0.coFpkJ"));
-    this.textCourses = driver.findElement(By.xpath("//h5[contains(text(),'Team Lead')]"));
+    this.textCourses = driver.findElement(By.cssSelector(".sc-1pljn7g-6.kbUYTE"));
     this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
   }
 

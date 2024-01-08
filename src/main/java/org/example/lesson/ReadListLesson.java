@@ -3,9 +3,12 @@ package org.example.lesson;
 import java.time.DateTimeException;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class ReadListLesson {
@@ -35,7 +38,7 @@ public class ReadListLesson {
 
   private static String dateChange(String data) {
     String newData = "";
-    String deleteFirstSymbol = data.replaceFirst("^[CС]\\s", "");
+    String deleteFirstSymbol = data.replaceFirst("^[CBСВ]\\s", "");
 
     if (!data.contains("года") && !data.contains("месяцев")) {
       newData = deleteFirstSymbol + " 2024";
@@ -48,9 +51,10 @@ public class ReadListLesson {
     }
 
     if (!newData.matches("^[0-9].*")) {
-      for (Months month : Months.values()) {
-        if (newData.contains(month.getMonth().substring(0, month.getMonth().length() - 1))) {
-          newData = newData.replaceFirst("^(.*?)(\\d+)", month.getDay() + " " + month.getMonth() + " $2");
+      for (Month month : Month.values()) {
+        String getMonth = month.getDisplayName(TextStyle.FULL, new Locale("ru"));
+        if (newData.contains(getMonth.substring(0, getMonth.length() - 1))) {
+          newData = newData.replaceFirst("^(.*?)(\\d+)", "1 " + getMonth + " $2");
         }
       }
     }

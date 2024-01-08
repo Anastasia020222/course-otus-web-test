@@ -1,6 +1,6 @@
 package tests;
 
-import static org.example.common.Constants.URL;
+import static org.example.common.OpenDriverUrl.openUrl;
 import static org.example.lesson.ReadListLesson.*;
 
 import org.example.annotations.Driver;
@@ -20,7 +20,7 @@ public class FilterCourseTest {
   @Test
   @DisplayName("Фильтры по названию курса и датам")
   public void listCourse() {
-    driver.get(URL);
+    openUrl(driver);
     LessonPages lessonPages = new LessonPages(driver);
     filterNameCourse(lessonPages.getListCourse());
     filterEarlyDate(lessonPages.getListCourse());

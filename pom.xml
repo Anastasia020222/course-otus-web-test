@@ -14,9 +14,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.plugin.version>3.9.6</maven.compiler.plugin.version>
 
-        <webdriver.manager.version>5.6.2</webdriver.manager.version>
-        <selenium.java.version>4.4.0</selenium.java.version>
+        <browser>chrome</browser>
+        <webdriver.base.url>https://otus.ru</webdriver.base.url>
+        <test.project.language>RU</test.project.language>
+
+        <webdriver.manager.version>5.6.1</webdriver.manager.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <selenium.java.version>4.1.0</selenium.java.version>
         <junit.version>5.10.0</junit.version>
+        <lombok.version>1.18.24</lombok.version>
+        <checkstyle.plugin.version>3.1.0</checkstyle.plugin.version>
+        <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
     </properties>
 
     <dependencies>
@@ -63,17 +71,44 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>${lombok.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>production</id>
+            <properties>
+                <webdriver.base.url>https://otus.ru</webdriver.base.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <webdriver.base.url>https://test.otus.ru</webdriver.base.url>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.plugin.version}</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <browser>${browser}</browser>
+                        <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+                        <test.project.language>${test.project.language}</test.project.language>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>${checkstyle.plugin.version}</version>
                 <configuration>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
                     <configLocation>src/main/resources/checkstyle.xml</configLocation>
@@ -90,25 +125,26 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>3.0.5</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
-                    <effort>Max</effort>
-                    <threshold>Low</threshold>
-                    <xmlOutput>true</xmlOutput>
-                    <includeTests>true</includeTests>
-                    <omitVisitors>UnreadFields</omitVisitors>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <showDeprecation>true</showDeprecation>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>analyze-compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.8.2.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs</artifactId>
+                        <version>4.8.3</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
