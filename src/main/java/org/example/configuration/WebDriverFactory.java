@@ -32,6 +32,7 @@ public class WebDriverFactory {
     WebDriverManager.chromedriver().setup();
     ChromeOptions options = new ChromeOptions();
     options.addArguments("--start-maximized");
+    options.addArguments("--remote-allow-origins=*");
     return new ChromeDriver(options);
   }
 
