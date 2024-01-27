@@ -7,6 +7,7 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -34,6 +35,29 @@ public class ReadListLesson {
             course1.getData().isAfter(course2.getData()) ? course1 : course2)
         .orElse(null);
     System.out.println(listLateDate);
+  }
+
+  public static void filterDateCourse(List<LessonConstructor> listCourse, String data) {
+    List<LessonConstructor> listDateCourse = listCourse.stream()
+        .filter(date -> date.getData().isAfter(parseLocalDateString(data))).collect(Collectors.toList());
+    System.out.println("Курсы, которые стартуют после " + data + ": \n" + listDateCourse);
+  }
+
+  public static int getMaxAndMinPrice(HashMap<String, Integer> getPrice, String typePrice) {
+    int price = 0;
+    if (typePrice.equals("max")) {
+      price = getPrice.values().stream().max(Integer::compareTo).orElseThrow();
+    } else if (typePrice.equals("min")) {
+      price = getPrice.values().stream().min(Integer::compareTo).orElseThrow();
+    }
+    return price;
+  }
+
+  public static void filterPrice(HashMap<String, Integer> getPrice, String typePrice) {
+    System.out.println("Вывод курсов с " + typePrice + " стоимостью:");
+    getPrice.entrySet().stream()
+        .filter(price -> price.getValue() == getMaxAndMinPrice(getPrice, typePrice))
+        .forEach(p -> System.out.println("Курс: '" + p.getKey() + "' со стоимостью - " + p.getValue() + "₽"));
   }
 
   private static String dateChange(String data) {

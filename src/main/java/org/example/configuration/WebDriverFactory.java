@@ -12,9 +12,7 @@ import org.openqa.selenium.opera.OperaOptions;
 
 public class WebDriverFactory {
 
-  private String browser = System.getProperty("browser");
-
-  public WebDriver getDriver() {
+  public WebDriver getDriver(String browser) {
     switch (browser) {
       case CHROME:
         return createChromeDriver();

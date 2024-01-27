@@ -1,13 +1,19 @@
 package org.example.common;
 
-import org.openqa.selenium.WebDriver;
+import com.google.inject.Inject;
+import org.example.configuration.AbsDriverPageObject;
+import org.example.configuration.DriverControlLaunch;
 
-public class OpenDriverUrl {
+public class OpenDriverUrl extends AbsDriverPageObject {
 
-  private static String url = System.getProperty("webdriver.base.url");
+  @Inject
+  public OpenDriverUrl(DriverControlLaunch driverControlLaunch) {
+    super(driverControlLaunch);
+  }
 
-  public static void openUrl(WebDriver driver) {
+  private String url = System.getProperty("webdriver.base.url", "https://otus.ru");
 
-    driver.get(url);
+  public void openUrl(String path) {
+    driver.get(url + path);
   }
 }
