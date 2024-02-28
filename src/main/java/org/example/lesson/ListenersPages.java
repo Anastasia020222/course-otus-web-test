@@ -18,7 +18,7 @@ public class ListenersPages {
   public ListenersPages(WebDriver driver) {
     this.driver = driver;
     this.infoButton = driver.findElement(By.xpath("//div[contains(text(), 'Программирование')]"));
-    this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
   }
 
   public ListenersPages clickInfoButton() {

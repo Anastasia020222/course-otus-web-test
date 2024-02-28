@@ -30,7 +30,7 @@ public class LessonPages {
     this.actions = new Actions(driver);
     this.resultListLesson = driver.findElements(By.cssSelector(".sc-1ftuaec-0.coFpkJ"));
     this.textCourses = driver.findElement(By.cssSelector(".sc-1pljn7g-6.kbUYTE"));
-    this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
   }
 
   public LessonPages actionsCourse() {

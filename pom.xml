@@ -15,6 +15,8 @@
         <maven.compiler.plugin.version>3.9.6</maven.compiler.plugin.version>
 
         <browser>chrome</browser>
+        <remote>true</remote>
+        <versionBrowser>121.0</versionBrowser>
         <webdriver.base.url>https://otus.ru</webdriver.base.url>
         <test.project.language>RU</test.project.language>
 
@@ -100,9 +102,18 @@
                 <configuration>
                     <systemPropertyVariables>
                         <browser>${browser}</browser>
+                        <remote>${remote}</remote>
+                        <versionBrowser>${versionBrowser}</versionBrowser>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
                         <test.project.language>${test.project.language}</test.project.language>
                     </systemPropertyVariables>
+                    <properties>
+                        <configurationParameters>
+                            junit.jupiter.execution.parallel.enabled=true
+                            junit.jupiter.execution.parallel.mode.default=concurrent
+                            junit.jupiter.execution.parallel.config.fixed.parallelism=2
+                        </configurationParameters>
+                    </properties>
                 </configuration>
             </plugin>
             <plugin>
@@ -129,8 +140,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>14</source>
+                    <target>14</target>
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
