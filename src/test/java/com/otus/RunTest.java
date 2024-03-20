@@ -5,6 +5,8 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/resources/feature"}, glue = {"com/otus/hooks", "com/otus/steps"})
+@CucumberOptions(features = {"src/test/resources/feature"},
+    glue = {"com/otus/hooks", "com/otus/steps"},
+    publish = true)
 public class RunTest {
 }

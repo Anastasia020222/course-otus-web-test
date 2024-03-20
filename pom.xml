@@ -11,17 +11,18 @@
     <properties>
         <maven.compiler.source>20</maven.compiler.source>
         <maven.compiler.target>20</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.plugin.version>3.9.6</maven.compiler.plugin.version>
 
         <browser>chrome</browser>
+        <versionBrowser>121.0</versionBrowser>
+        <remote>true</remote>
         <webdriver.base.url>https://otus.ru</webdriver.base.url>
         <test.project.language>RU</test.project.language>
 
         <webdriver.manager.version>5.6.1</webdriver.manager.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <selenium.java.version>4.0.0</selenium.java.version>
-        <junit.version>5.10.0</junit.version>
+        <junit.version>4.13.2</junit.version>
         <lombok.version>1.18.24</lombok.version>
         <checkstyle.plugin.version>3.1.0</checkstyle.plugin.version>
         <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
@@ -39,16 +40,16 @@
             <version>${selenium.java.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
             <version>${junit.version}</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>compile</scope>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -83,7 +84,7 @@
         <profile>
             <id>production</id>
             <properties>
-                <webdriver.base.url>https://otus.ru</webdriver.base.url>
+                <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
             </properties>
         </profile>
         <profile>
@@ -101,8 +102,13 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.plugin.version}</version>
                 <configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>2</threadCount>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
                     <systemPropertyVariables>
                         <browser>${browser}</browser>
+                        <remote>${remote}</remote>
+                        <versionBrowser>${versionBrowser}</versionBrowser>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
                         <test.project.language>${test.project.language}</test.project.language>
                     </systemPropertyVariables>

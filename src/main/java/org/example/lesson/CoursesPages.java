@@ -28,7 +28,7 @@ public class CoursesPages extends AbsDriverPageObject {
   @Inject
   public CoursesPages(DriverControlLaunch driverControlLaunch) {
     super(driverControlLaunch);
-    this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     this.actions = new Actions(driver);
   }
 

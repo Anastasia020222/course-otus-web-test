@@ -14,10 +14,10 @@ public class OpenBrowserSteps {
   @Дано("Я открываю браузер {string}")
   public void newBrowser(String browser) {
     try {
-      if (!browser.isEmpty()) {
-        driverControlLaunch.setBrowser(browser);
+      if (System.getProperty("browser") != null) {
+        driverControlLaunch.setBrowser(System.getProperty("browser").toLowerCase(Locale.ROOT));
       } else {
-        driverControlLaunch.setBrowser(System.getProperty("browser", "chrome").toLowerCase(Locale.ROOT));
+        driverControlLaunch.setBrowser(browser);
       }
     } catch (Exception e) {
       throw new RuntimeException("Couldn't get the browser");
