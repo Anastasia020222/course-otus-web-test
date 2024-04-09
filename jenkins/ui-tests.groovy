@@ -4,7 +4,7 @@ timeout(60) {
         wrap([$class: 'BuildUser']) {
             currentBuild.description = """
                 build user : $BUILD_USER
-                branch : $REFSPEC
+                branch : $BRANCH
             """
 
             params = readYaml text: env.YAML_CONFIG ?: null
