@@ -1,5 +1,5 @@
 timeout(60) {
-    node("maven-slave") {
+    node('maven-slave') {
 
         wrap([$class: 'BuildUser']) {
             currentBuild.description = """
@@ -19,14 +19,13 @@ timeout(60) {
             checkout scm
         }
 
-        stage("") {
+        stage("Create configurations") {
             sh "echo BROWSER=${env.getProperty('BROWSER')} > ./.env"
             sh "echo BROWSER_VESION=${env.getProperty('BROWSER_VESION')} >> ./.env"
             sh "echo REMORE_URL=${env.getProperty('REMORE_URL')} >> ./.env"
         }
 
         stage("Run UI tests") {
-            //sh ("mvn test -Dbrowser=$BOWSER -Dbrowser_version=$BROWSER_VESION -Dremote=$REMORE_URL")
             sh("mkdir ./reports")
             sh "docker run --rm --env-file -v ./report:/root/ui_tests/allure-result ./ ./.env -t ui_tests:1.0.0"
         }
