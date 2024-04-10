@@ -1,3 +1,5 @@
+import org.xml.sax.ext.DeclHandler
+
 timeout(60) {
     node('maven-slave') {
 
@@ -8,12 +10,10 @@ timeout(60) {
             """
 
             params = readYaml text: env.YAML_CONFIG ?: null
-            echo params
             if (params != null) {
-                echo env.getProperty('BASE_URL')
                 for (param in params.entrySet()) {
-                    echo env.getProperty('BASE_URL')
-                    env.setProperty(param.getKey(), param.getValue)
+                    env.setProperty(param.getKey(), param.getValue())
+                    echo env.setProperty(param.getKey(), param.getValue())
                 }
             }
         }
