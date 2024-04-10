@@ -16,7 +16,7 @@
         <browser>chrome</browser>
         <versionBrowser>121.0</versionBrowser>
         <remote>true</remote>
-        <webdriver.base.url>https://otus.ru</webdriver.base.url>
+        <base.url>https://otus.ru</base.url>
         <test.project.language>RU</test.project.language>
 
         <webdriver.manager.version>5.6.1</webdriver.manager.version>
@@ -109,7 +109,7 @@
                         <browser>${browser}</browser>
                         <remote>${remote}</remote>
                         <versionBrowser>${versionBrowser}</versionBrowser>
-                        <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+                        <base.url>${base.url}</base.url>
                         <test.project.language>${test.project.language}</test.project.language>
                     </systemPropertyVariables>
                 </configuration>

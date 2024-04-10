@@ -20,9 +20,10 @@ timeout(60) {
         }
 
         stage("Create configurations") {
+            sh "echo BASE_URL=${env.getProperty('BASE_URL')} > ./.env"
             sh "echo BROWSER=${env.getProperty('BROWSER')} > ./.env"
             sh "echo BROWSER_VESION=${env.getProperty('BROWSER_VESION')} >> ./.env"
-            sh "echo REMORE_URL=${env.getProperty('REMORE_URL')} >> ./.env"
+            sh "echo REMOTE=${env.getProperty('REMOTE')} >> ./.env"
         }
 
         stage("Run UI tests") {
