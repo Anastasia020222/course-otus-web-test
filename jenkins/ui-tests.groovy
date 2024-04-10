@@ -30,7 +30,9 @@ timeout(60) {
 
         stage("Build Docker image") {
             // Сборка Docker-образа
-            sh "docker build -t ui_tests:1.0.0 ."
+            dir('/var/jenkins_home/workspace/ui-tests') {
+                sh "docker build -t ui_tests:1.0.0 ."
+            }
         }
 
 
