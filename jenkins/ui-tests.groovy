@@ -30,7 +30,7 @@ timeout(60) {
 
         stage("Run UI tests") {
             sh("mkdir ./reports")
-            sh "docker run --rm --env-file -v ./report:/root/ui_tests/allure-result ./ ./.env -t ui_tests:1.0.0"
+            sh "docker run --env-file -v ./reports:/root/ui_tests/allure-result ./ ./.env -t ui_tests:1.0.0"
         }
 
         stage("Publish allure results") {
