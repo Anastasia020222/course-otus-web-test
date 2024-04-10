@@ -29,12 +29,8 @@ timeout(60) {
         }
 
         stage("Build Docker image") {
-            steps {
-                script {
-                    // Сборка Docker-образа
-                    sh "docker build -t ui_tests:1.0.0 ."
-                }
-            }
+            // Сборка Docker-образа
+            sh "docker build -t ui_tests:1.0.0 ."
         }
 
 
