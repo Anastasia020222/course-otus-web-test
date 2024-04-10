@@ -20,9 +20,10 @@ timeout(60) {
         }
 
         stage("Create configurations") {
+            echo "env.getProperty('BASE_URL')"
             sh "echo BASE_URL=${env.getProperty('BASE_URL')} > ./.env"
             sh "echo BROWSER=${env.getProperty('BROWSER')} > ./.env"
-            sh "echo BROWSER_VESION=${env.getProperty('BROWSER_VESION')} >> ./.env"
+            sh "echo VERSION_BROWSER=${env.getProperty('VERSION_BROWSER')} >> ./.env"
             sh "echo REMOTE=${env.getProperty('REMOTE')} >> ./.env"
         }
 
