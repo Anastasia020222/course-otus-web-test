@@ -28,9 +28,19 @@ timeout(60) {
             sh "echo REMOTE=${env.getProperty('REMOTE')} >> ./.env"
         }
 
+        stage("Build Docker image") {
+            steps {
+                script {
+                    // Сборка Docker-образа
+                    sh "docker build -t ui_tests:1.0.0 ."
+                }
+            }
+        }
+
+
         stage("Run UI tests") {
             sh("mkdir ./reports")
-            sh "docker run --env-file -v ./reports:/root/ui_tests/allure-result ./ ./.env -t ui_tests:1.0.0"
+            sh "docker run --rm --env-file -v ./reports:/root/ui_tests/allure-result ./ ./.env -t ui_tests:1.0.0"
         }
 
         stage("Publish allure results") {
