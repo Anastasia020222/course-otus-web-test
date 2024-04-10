@@ -13,7 +13,7 @@ timeout(60) {
             if (params != null) {
                 for (param in params.entrySet()) {
                     env.setProperty(param.getKey(), param.getValue())
-                    echo env.setProperty(param.getKey(), param.getValue())
+                    sh "echo env.setProperty(param.getKey(), param.getValue())"
                 }
             }
         }
