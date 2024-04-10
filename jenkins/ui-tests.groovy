@@ -8,6 +8,7 @@ timeout(60) {
             """
 
             params = readYaml text: env.YAML_CONFIG ?: null
+            echo params
             if (params != null) {
                 echo env.getProperty('BASE_URL')
                 for (param in params.entrySet()) {
