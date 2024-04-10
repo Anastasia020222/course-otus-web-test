@@ -30,11 +30,7 @@ timeout(60) {
 
         stage("Build Docker image") {
             // Сборка Docker-образа
-            sh 'pwd'
-            echo "Workspace: ${env.WORKSPACE}"
-            dir('/home/unixuser/ui_tests') {
-                sh "docker build -t ui_tests:1.0.0 ."
-            }
+            sh "docker build -t ui_tests:1.0.0 ."
         }
 
 
