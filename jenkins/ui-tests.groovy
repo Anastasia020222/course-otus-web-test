@@ -1,5 +1,3 @@
-import org.xml.sax.ext.DeclHandler
-
 timeout(60) {
     node('maven-slave') {
 
@@ -33,10 +31,9 @@ timeout(60) {
 //            sh "docker build -t ui_tests:1.0.0 ."
 //        }
 
-
         stage("Run UI tests") {
             sh("mkdir ./reports")
-            sh "docker run --rm --env-file ./.env -v ./reports:/root/ui_tests/allure-result ui_tests:1.0.0"
+            sh "docker run --rm --env-file ./.env -t ui_tests:1.0.0"
 
             // sh "docker run --rm --env-file -v ./reports:/root/ui_tests/allure-result ./ ./.env -t ui_tests:1.0.0"
         }
