@@ -9,7 +9,9 @@ timeout(60) {
 
             params = readYaml text: env.YAML_CONFIG ?: null
             if (params != null) {
+                echo env.getProperty('BASE_URL')
                 for (param in params.entrySet()) {
+                    echo env.getProperty('BASE_URL')
                     env.setProperty(param.getKey(), param.getValue)
                 }
             }
@@ -20,7 +22,6 @@ timeout(60) {
         }
 
         stage("Create configurations") {
-            echo "env.getProperty('BASE_URL')"
             sh "echo BASE_URL=${env.getProperty('BASE_URL')} > ./.env"
             sh "echo BROWSER=${env.getProperty('BROWSER')} > ./.env"
             sh "echo VERSION_BROWSER=${env.getProperty('VERSION_BROWSER')} >> ./.env"
