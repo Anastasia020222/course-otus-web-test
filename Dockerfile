@@ -1,4 +1,4 @@
-FROM maven:3.9-calipse-temurin-8
+FROM maven:3.9.6
 
 RUN mkdir -p /home/unixuser/ui_tests
 
