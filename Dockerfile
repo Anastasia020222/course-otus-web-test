@@ -1,4 +1,4 @@
-FROM maven:3.9.6
+FROM maven:3.9.0
 
 RUN mkdir -p /home/unixuser/ui_tests
 
