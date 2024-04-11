@@ -71,7 +71,7 @@ public class WebDriverFactory {
     }
     capabilities.setVersion(versionBrowser);
     capabilities.setCapability("enableVNC", true);
-    capabilities.setCapability("enableVideo", true);
+    //capabilities.setCapability("enableVideo", true);
     Map<String, Object> selenoidOptions = new HashMap<>();
     if (OPERA.equals(browser)) {
       selenoidOptions.put("browserName", browser);
