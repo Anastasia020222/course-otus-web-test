@@ -26,10 +26,10 @@ timeout(60) {
             sh "echo REMOTE=${env.getProperty('REMOTE')} >> ./.env"
         }
 
-//        stage("Build Docker image") {
-//            // Сборка Docker-образа
-//            sh "docker build -t ui_tests:1.0.0 ."
-//        }
+        stage("Build Docker image") {
+            // Сборка Docker-образа
+            sh "docker build -t ui_tests:1.0.0 ."
+        }
 
         stage("Run UI tests") {
             sh "whoami"
