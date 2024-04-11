@@ -32,6 +32,7 @@ timeout(60) {
 //        }
 
         stage("Run UI tests") {
+            sh "whoami"
             sh("mkdir ./reports")
             sh "docker run --rm --env-file ./.env -t ui_tests:1.0.0"
 
