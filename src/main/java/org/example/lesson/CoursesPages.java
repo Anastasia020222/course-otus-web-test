@@ -38,7 +38,7 @@ public class CoursesPages extends AbsDriverPageObject {
   @FindBy(css = ".sc-12yergf-5.AjnvM")
   private WebElement nameCourses;
 
-  @FindBy(css = ".sc-1og4wiw-0.sc-s2pydo-1.ifZfhS.diGrSa")
+  @FindBy(css = ".sc-1og4wiw-0.sc-s2pydo-1.iLVLDh.diGrSa")
   private WebElement titleCourse;
 
   @FindBy(css = ".sc-s2pydo-6.EOCgR.sc-x072mc-0.hOtCic")
