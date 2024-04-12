@@ -34,9 +34,9 @@ timeout(60) {
         stage("Run UI tests") {
             sh("mkdir ./reports")
             sh "pwd"
-            sh "ls -la"
+            sh "ls"
             //sh "docker run --rm --env-file ./.env -t ui_tests:1.0.0"
-            sh "docker run --rm --env-file -v ./reports:/root/ui_tests/allure-result ./ ./.env -t ui_tests:1.0.0"
+            sh "docker run --rm --env-file -v ./reports:/home/jenkins/workspace/ui_tests/allure-result ./ ./.env -t ui_tests:1.0.0"
         }
 
         stage("Publish allure results") {
