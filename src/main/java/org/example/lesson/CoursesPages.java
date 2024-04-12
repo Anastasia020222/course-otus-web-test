@@ -1,6 +1,5 @@
 package org.example.lesson;
 
-import static org.example.common.Constants.EXPLICIT_WAIT;
 import static org.example.lesson.ReadListLesson.parseLocalDateString;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
