@@ -7,3 +7,4 @@ build
 test-output
 out
 lombok.config
+.allure
