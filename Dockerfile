@@ -6,4 +6,6 @@ WORKDIR /home/unixuser/ui_tests
 
 COPY . /home/unixuser/ui_tests
 
+RUN mvn build
+
 ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
