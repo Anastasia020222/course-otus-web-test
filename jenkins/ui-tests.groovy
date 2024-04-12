@@ -38,7 +38,7 @@ timeout(60) {
 
         stage("Publish allure results") {
             allure([
-                    results          : [{path : './reports'}],
+                    results          : [[path : './reports']],
                     reportBuildPolicy: 'ALWAYS'
             ])
         }
