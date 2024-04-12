@@ -15,12 +15,11 @@
 
         <browser>chrome</browser>
         <versionBrowser>121.0</versionBrowser>
-        <remote>true</remote>
+        <remote>false</remote>
         <base.url>https://otus.ru</base.url>
         <test.project.language>RU</test.project.language>
 
         <webdriver.manager.version>5.6.1</webdriver.manager.version>
-<!--        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>-->
         <selenium.java.version>4.0.0</selenium.java.version>
         <junit.version>4.13.2</junit.version>
         <lombok.version>1.18.24</lombok.version>
