@@ -38,15 +38,15 @@ timeout(60) {
             sh "docker run --rm --env-file ./.env -v /home/jenkins/workspace/ui-tests/reports:/home/unixuser/ui_tests/allure-result -t ui_tests:1.0.0"
         }
 
+        //stage("Publish allure results") {
         post {
             always {
-                sh "pwd"
-                // Этап публикации отчетов Allure
                 allure([
                         includeProperties: false,
-                        jdk: '',
+                        jdk              : '',
+                        properties       : [],
                         reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'target/allure-results']]
+                        results          : [[path: 'allure-results']]
                 ])
             }
         }

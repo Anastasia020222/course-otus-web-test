@@ -27,7 +27,7 @@
         <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
         <allure.version>2.24.0</allure.version>
         <allure-maven.version>2.12.0</allure-maven.version>
-        <aspectj.version>1.9.20.1</aspectj.version>
+        <aspectj.version>1.9.8</aspectj.version>
 
     </properties>
 
@@ -90,8 +90,8 @@
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit-platform</artifactId>
-            <version>2.24.0</version>
+            <artifactId>allure-junit4</artifactId>
+            <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -134,7 +134,24 @@
                         <base.url>${base.url}</base.url>
                         <test.project.language>${test.project.language}</test.project.language>
                     </systemPropertyVariables>
+                    <argLine>
+                        -Dfile.encoding=${project.build.sourceEncoding}
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>io.qameta.allure.junit4.AllureJunit4</value>
+                        </property>
+                    </properties>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>1.9.6</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
