@@ -53,6 +53,6 @@ def generateAllure() {
             jdk              : '',
             properties       : [],
             reportBuildPolicy: 'ALWAYS',
-            results          : [[path: 'allure-results']]
+            results          : [[path: '/home/jenkins/workspace/ui-tests/allure-results']]
     ])
 }
