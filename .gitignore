@@ -8,4 +8,4 @@ test-output
 out
 lombok.config
 .allure
-.allure-results
+allure-results
