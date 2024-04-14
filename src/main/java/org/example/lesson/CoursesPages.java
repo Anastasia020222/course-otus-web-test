@@ -76,6 +76,8 @@ public class CoursesPages extends AbsDriverPageObject {
     String courseName;
     String courseDate;
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".sc-1pljn7g-1.hvCeDA")));
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".sc-12yergf-5.AjnvM")));
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".sc-1pljn7g-3.cdTYKW")));
     for (WebElement el : resultListLesson) {
       if (el.findElements(By.cssSelector(".sc-1pljn7g-1.hvCeDA")).isEmpty()) {
         courseName = el.findElement(By.cssSelector(".sc-12yergf-5.AjnvM")).getText();
