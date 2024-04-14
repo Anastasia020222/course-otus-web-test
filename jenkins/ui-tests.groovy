@@ -38,7 +38,7 @@ timeout(60) {
             sh "docker run --rm --env-file ./.env -v /home/jenkins/workspace/ui-tests/reports:/home/unixuser/ui_tests/allure-result -t ui_tests:1.0.0"
         }
         stage('Publish allure results') {
-            steps {
+            step {
                 git 'https://github.com/eroshenkoam/allure-example.git'
                 sh './mvn clean test'
             }
