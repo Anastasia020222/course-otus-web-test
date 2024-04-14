@@ -40,6 +40,7 @@ timeout(60) {
 
         post {
             always {
+                sh "pwd"
                 // Этап публикации отчетов Allure
                 allure([
                         includeProperties: false,

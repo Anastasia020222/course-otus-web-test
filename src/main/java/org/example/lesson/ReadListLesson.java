@@ -90,7 +90,7 @@ public class ReadListLesson {
   }
 
   public static LocalDate parseLocalDateString(String dateString) {
-    DateTimeFormatter formatterOneDay = DateTimeFormatter.ofPattern("d MMMM yyyy");
+    DateTimeFormatter formatterOneDay = DateTimeFormatter.ofPattern("dd MMMM yyyy");
     LocalDate localDate = null;
     try {
       localDate = LocalDate.parse(dateChange(dateString), formatterOneDay);
