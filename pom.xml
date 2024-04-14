@@ -125,7 +125,7 @@
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
-                            <value>${project.basedir}/allure-resul</value>
+                            <value>${project.basedir}/allure-results</value>
                         </property>
                     </systemProperties>
                     <systemPropertyVariables>
