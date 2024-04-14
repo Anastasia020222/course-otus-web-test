@@ -39,8 +39,6 @@ timeout(60) {
         }
         finally {
             stage("Allure") {
-                sh "pwd"
-                sh("ls -al /root/allure/")
                 sh("mkdir ./allure-results")
                 sh("cp /root/allure/* ./allure-results/")
                 generateAllure()
@@ -50,13 +48,11 @@ timeout(60) {
 }
 
 def generateAllure() {
-    sh "pwd"
-    sh "ls -a ./allure-results"
     allure([
             includeProperties: true,
             jdk              : '',
             properties       : [],
             reportBuildPolicy: 'ALWAYS',
-            results          : [[path: './allure-reports']]
+            results          : [[path: './allure-results']]
     ])
 }
