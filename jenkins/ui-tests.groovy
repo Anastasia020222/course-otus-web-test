@@ -28,7 +28,9 @@ timeout(60) {
 
         stage("Build Docker image") {
             // Сборка Docker-образа
+            sh "pwd"
             sh "docker build -t ui_tests:1.0.0 ."
+            sh "pwd"
         }
 
         stage("Run UI tests") {
