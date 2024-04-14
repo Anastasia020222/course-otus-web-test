@@ -35,16 +35,19 @@ timeout(60) {
 
         stage("Run UI tests") {
             sh("mkdir ./reports")
-            sh "docker run --rm --env-file ./.env -v /home/jenkins/workspace/ui-tests/reports:/home/unixuser/ui_tests/allure-result -t ui_tests:1.0.0"
+            sh "docker run --rm --env-file ./.env -v /home/jenkins/workspace/ui-tests/reports:/home/unixuser/ui_tests/target/allure-result -t ui_tests:1.0.0"
         }
 
-        stage("Publish allure results") {
-            allure([
-                    includeProperties: false,
-                    jdk: '',
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'target/allure-results']]
-            ])
+        post {
+            always {
+                // Этап публикации отчетов Allure
+                allure([
+                        includeProperties: false,
+                        jdk: '',
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'target/allure-results']]
+                ])
+            }
         }
     }
 }
