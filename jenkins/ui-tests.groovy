@@ -28,7 +28,6 @@ timeout(60) {
 
         stage("Build Docker image") {
             // Сборка Docker-образа
-            sh "pwd"
             sh "docker build -t ui_tests:1.0.0 ."
             sh "pwd"
         }
@@ -36,7 +35,7 @@ timeout(60) {
         try {
             stage("Run UI tests") {
                 sh("mkdir ./reports")
-                sh "docker run --rm --env-file ./.env -v /home/jenkins/workspace/ui-tests/reports:/home/unixuser/ui_tests/allure-result -t ui_tests:1.0.0"
+                sh "docker run --rm --env-file ./.env -v /home/jenkins/workspace/ui-tests/reports:/home/unixuser/ui_tests/target/allure-results -t ui_tests:1.0.0"
             }
         }
         finally {
@@ -53,6 +52,6 @@ def generateAllure() {
             jdk              : '',
             properties       : [],
             reportBuildPolicy: 'ALWAYS',
-            results          : [[path: 'target/allure-results']]
+            results          : [[path: '/home/jenkins/workspace/ui-tests/reports']]
     ])
 }
