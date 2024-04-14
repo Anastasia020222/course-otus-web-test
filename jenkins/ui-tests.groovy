@@ -40,7 +40,7 @@ timeout(60) {
         }
         finally {
             stage("Allure") {
-                sh "pws"
+                sh "pwd"
                 generateAllure()
             }
         }
