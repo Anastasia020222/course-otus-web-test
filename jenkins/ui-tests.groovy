@@ -15,6 +15,10 @@ timeout(60) {
             }
         }
 
+        options {
+            ansiColor('xterm')
+        }
+
         stage("Checkout") {
             checkout scm
         }
