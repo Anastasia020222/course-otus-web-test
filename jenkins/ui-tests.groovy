@@ -48,6 +48,8 @@ timeout(60) {
 }
 
 def generateAllure() {
+    sh "pwd"
+    sh "ls -a"
     allure([
             includeProperties: true,
             jdk              : '',
