@@ -15,7 +15,7 @@
 
         <browser>chrome</browser>
         <versionBrowser>121.0</versionBrowser>
-        <remote>false</remote>
+        <remote>true</remote>
         <base.url>https://otus.ru</base.url>
         <test.project.language>RU</test.project.language>
 
