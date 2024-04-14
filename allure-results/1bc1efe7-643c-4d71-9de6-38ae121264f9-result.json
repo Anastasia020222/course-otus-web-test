@@ -1,0 +1,132 @@
+{
+  "uuid": "1bc1efe7-643c-4d71-9de6-38ae121264f9",
+  "historyId": "3b8762abee6d4b142bd01d01ff9bdb23",
+  "fullName": "src/test/resources/feature/course.feature:9",
+  "labels": [
+    {
+      "name": "host",
+      "value": "Anastasia-PK"
+    },
+    {
+      "name": "thread",
+      "value": "28024@Anastasia-PK.main(1)"
+    },
+    {
+      "name": "feature",
+      "value": "Главная страница"
+    },
+    {
+      "name": "story",
+      "value": "Поиск курса \"Специализация Java-разработчик\""
+    },
+    {
+      "name": "suite",
+      "value": "Главная страница"
+    },
+    {
+      "name": "testClass",
+      "value": "Поиск курса \"Специализация Java-разработчик\""
+    },
+    {
+      "name": "framework",
+      "value": "cucumber6jvm"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    },
+    {
+      "name": "gherkin_uri",
+      "value": "file:///C:/Users/anser/CourseAQA/course-otus-web-test/src/test/resources/feature/course.feature"
+    },
+    {
+      "name": "package",
+      "value": "src.test.resources.feature.course_feature.Главная страница"
+    }
+  ],
+  "links": [],
+  "name": "Поиск курса \"Специализация Java-разработчик\"",
+  "status": "passed",
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "Дано  Я открываю браузер \"chrome\"",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1713105286093,
+      "stop": 1713105286149
+    },
+    {
+      "name": "Пусть  Открыта главная страница",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1713105286156,
+      "stop": 1713105294688
+    },
+    {
+      "name": "Если  Кликнуть по курсу \"Специализация Java-разработчик\"",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1713105294691,
+      "stop": 1713105308840
+    },
+    {
+      "name": "Тогда  Откроется страница курса",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1713105308841,
+      "stop": 1713105308875
+    },
+    {
+      "name": "И  На странице курса заголовок соответствует названию курса \"Java-разработчик\"",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1713105308876,
+      "stop": 1713105309105
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1713105286089,
+  "stop": 1713105309310
+}
