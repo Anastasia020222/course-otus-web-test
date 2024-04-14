@@ -37,18 +37,33 @@ timeout(60) {
             sh("mkdir ./reports")
             sh "docker run --rm --env-file ./.env -v /home/jenkins/workspace/ui-tests/reports:/home/unixuser/ui_tests/allure-result -t ui_tests:1.0.0"
         }
-
-        //stage("Publish allure results") {
-        post {
-            always {
-                allure([
-                        includeProperties: false,
-                        jdk              : '',
-                        properties       : [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results          : [[path: 'allure-results']]
-                ])
+        stage('Publish allure results') {
+            steps {
+                git 'https://github.com/eroshenkoam/allure-example.git'
+                sh './mvn clean test'
+            }
+            post {
+                always {
+                    allure includeProperties:
+                            false,
+                            jdk: '',
+                            results: [[path: 'target/allure-results']]
+                }
             }
         }
+
+
+//        post {
+//            always {
+//                stage("Publish allure results") {
+//                    allure
+//                            includeProperties: false,
+//                            jdk              : '',
+//                            properties       : [],
+//                            reportBuildPolicy: 'ALWAYS',
+//                            results          : [[path: 'allure-results']]
+//                }
+//            }
+//        }
     }
 }
