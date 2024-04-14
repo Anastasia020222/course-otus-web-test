@@ -39,7 +39,11 @@ public class ReadListLesson {
 
   public static void filterDateCourse(List<LessonConstructor> listCourse, String data) {
     List<LessonConstructor> listDateCourse = listCourse.stream()
-        .filter(date -> date.getData().isAfter(parseLocalDateString(data))).collect(Collectors.toList());
+        .filter(date -> {
+          LocalDate lessonDate = date.getData();
+          return lessonDate != null && lessonDate.isAfter(parseLocalDateString(data));
+        })
+        .collect(Collectors.toList());
     System.out.println("Курсы, которые стартуют после " + data + ": \n" + listDateCourse);
   }
 
