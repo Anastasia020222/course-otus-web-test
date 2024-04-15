@@ -38,7 +38,7 @@ timeout(60) {
             }
         }
         finally {
-            stage("Allure") {
+            stage("Publication of the allure report") {
                 sh("mkdir ./allure-results")
                 sh("cp /root/allure/* ./allure-results/")
                 generateAllure()
