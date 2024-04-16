@@ -33,14 +33,14 @@ timeout(60) {
 
         try {
             stage("Run UI tests") {
-                sh("rm -rf /root/allure/*")
-                sh "docker run --rm --env-file ./.env -v m2:/root/.m2 -v allure:/home/unixuser/ui_tests/allure-results -t ui_tests:1.0.0"
+                sh("rm -rf /root/ui-allure/*")
+                sh "docker run --rm --env-file ./.env -v m2:/root/.m2 -v ui-allure:/home/unixuser/ui_tests/allure-results -t ui_tests:1.0.0"
             }
         }
         finally {
             stage("Publication of the allure report") {
                 sh("mkdir ./allure-results")
-                sh("cp /root/allure/* ./allure-results/")
+                sh("cp /root/ui-allure/* ./allure-results/")
                 generateAllure()
             }
         }
