@@ -17,6 +17,7 @@
         <browser>chrome</browser>
         <versionBrowser>121.0</versionBrowser>
         <remote>true</remote>
+        <remote.url>http://172.30.207.187:80/wd/hub</remote.url>
         <base.url>https://otus.ru</base.url>
         <test.project.language>RU</test.project.language>
 
@@ -129,6 +130,7 @@
                         </property>
                     </systemProperties>
                     <systemPropertyVariables>
+                        <remote.url>${remote.url}</remote.url>
                         <browser>${browser}</browser>
                         <remote>${remote}</remote>
                         <versionBrowser>${versionBrowser}</versionBrowser>

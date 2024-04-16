@@ -1,7 +1,6 @@
 package org.example.configuration;
 
 import static org.example.common.Constants.*;
-import static org.example.common.Constants.SELENIUM_ADDRESS;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +21,7 @@ public class WebDriverFactory {
 
   private final boolean remote = "true".equals(System.getProperty("remote"));
   private final String versionBrowser = System.getProperty("versionBrowser");
+  private final String remoteSelenoidUrl = System.getProperty("remote.url");
 
   public WebDriver getDriver(String browser) {
     if (!remote) {
@@ -37,7 +37,7 @@ public class WebDriverFactory {
       }
     } else {
       try {
-        return new RemoteWebDriver(new URL(SELENIUM_ADDRESS), getCapabilities(browser));
+        return new RemoteWebDriver(new URL(remoteSelenoidUrl), getCapabilities(browser));
       } catch (MalformedURLException e) {
         throw new RuntimeException("Unable to create remote driver", e);
       }
