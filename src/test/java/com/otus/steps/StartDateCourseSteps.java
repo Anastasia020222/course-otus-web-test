@@ -1,6 +1,7 @@
 package com.otus.steps;
 
 import static org.example.lesson.ReadListLesson.filterDateCourse;
+import static org.example.lesson.ReadListLesson.filterNameCourse;
 
 import com.google.inject.Inject;
 import io.cucumber.java.ru.Тогда;
@@ -14,5 +15,10 @@ public class StartDateCourseSteps {
   @Тогда("Найти курсы, которые стартуют после {string}")
   public void searchCourse(String course) {
     filterDateCourse(lessonPages.getListCourse(), course);
+  }
+
+  @Тогда("Фильтруем курсы по их названию")
+  public void cheskFilterNameCourse() {
+    filterNameCourse(lessonPages.getListCourse());
   }
 }
