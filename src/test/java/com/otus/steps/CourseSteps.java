@@ -6,6 +6,9 @@ import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Тогда;
 import org.example.lesson.CoursesPages;
 
+import static org.example.lesson.ReadListLesson.filterEarlyDate;
+import static org.example.lesson.ReadListLesson.filterLateDate;
+
 public class CourseSteps {
 
   @Inject
@@ -24,5 +27,15 @@ public class CourseSteps {
   @И("На странице курса заголовок соответствует названию курса {string}")
   public void checkTitleCourse(String arg0) {
     lessonPages.checkTitleCourse(arg0);
+  }
+
+  @Тогда("Найти курс, который стартует позже всех")
+  public void checkFilterLateDate() {
+    filterLateDate(lessonPages.getListCourse());
+  }
+
+  @Тогда("Найти курс, который стартует раньше всех")
+  public void checkFilterEarlyDate() {
+    filterEarlyDate(lessonPages.getListCourse());
   }
 }
