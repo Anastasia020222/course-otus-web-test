@@ -1,13 +1,13 @@
 package com.otus.steps;
 
+import static org.example.lesson.ReadListLesson.filterEarlyDate;
+import static org.example.lesson.ReadListLesson.filterLateDate;
+
 import com.google.inject.Inject;
 import io.cucumber.java.ru.Если;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Тогда;
 import org.example.lesson.CoursesPages;
-
-import static org.example.lesson.ReadListLesson.filterEarlyDate;
-import static org.example.lesson.ReadListLesson.filterLateDate;
 
 public class CourseSteps {
 
